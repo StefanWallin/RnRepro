@@ -1,6 +1,7 @@
 #import "AppDelegate.h"
 
 #import <React/RCTBundleURLProvider.h>
+#import <adyen-react-native/ADYRedirectComponent.h>
 
 @implementation AppDelegate
 
@@ -31,6 +32,10 @@
 - (BOOL)concurrentRootEnabled
 {
   return true;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+  return [ADYRedirectComponent applicationDidOpenURL:url];
 }
 
 @end
